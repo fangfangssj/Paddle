@@ -175,7 +175,7 @@ void RoiAlignKernel(const Context& dev_ctx,
 
   int64_t output_size = out->numel();
   uint32_t blocks = NumBlocks(output_size);
-  uint32_t threads = kNumCUDAThreads;
+  int threads = kNumCUDAThreads;
 #ifdef WITH_NV_JETSON
   backends::gpu::ChangeThreadNum(dev_ctx, &threads, 256);
 #endif
